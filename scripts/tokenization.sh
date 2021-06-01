@@ -28,4 +28,4 @@ cat data/test.en-de.de | tools/moses-scripts/scripts/tokenizer/tokenizer.perl -l
 cat data/test.en-de.en | tools/moses-scripts/scripts/tokenizer/tokenizer.perl -l en > data/test.tokenized.en-de.en
 
 
-echo "tokenized
+echo "tokenized"
