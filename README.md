@@ -30,10 +30,26 @@ Download and install required software:
 Download data:
 
     ./download_iwslt_2017_data.sh
+    
+Subsample data:
 
-Train a model:
+    ./scripts/subsample_data.sh
 
-    ./scripts/train.sh
+Tokenize data:
+
+    ./scripts/tokenization.sh
+
+Train word level model:
+
+    ./scripts/train_word_level.sh
+    
+Learn and apply BPE model, and build the vocabulary for the training file:
+
+    ./scripts/learn_bpe_build_vocab.sh
+
+Train BPE model:
+
+    ./scripts/train_bpe.sh
 
 The training process can be interrupted at any time, and the best checkpoint will always be saved.
 
