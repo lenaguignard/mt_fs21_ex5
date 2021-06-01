@@ -3,9 +3,9 @@ name: "transformer_word_level_config"
 data:
     src: "en"
     trg: "de"
-    train: "subsampled.tokenized.en-de"
-    dev:   "dev.tokenized.en-de"
-    test:  "test.tokenized.en-de"
+    train: "data/subsampled.tokenized.en-de"
+    dev:   "data/dev.tokenized.en-de"
+    test:  "data/test.tokenized.en-de"
     level: "word"
     lowercase: False
     max_sent_length: 100
