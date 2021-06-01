@@ -4,7 +4,6 @@ scripts=`dirname "$0"`
 base=$scripts/..
 
 data=$base/data
-#tools=$base/tools
 
 src=en
 trg=de
