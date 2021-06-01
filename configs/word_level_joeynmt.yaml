@@ -1,11 +1,11 @@
 name: "transformer_word_level_config"
 
 data:
-    src: en
-    trg: de
-    train: subsampled.en-de
-    dev:   dev.tokenized.en-de
-    test:  test.tokenized.en-de
+    src: "en"
+    trg: "de"
+    train: "subsampled.en-de"
+    dev:   "dev.tokenized.en-de"
+    test:  "test.tokenized.en-de"
     level: "word"
     lowercase: False
     max_sent_length: 100
