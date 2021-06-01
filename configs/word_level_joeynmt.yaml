@@ -36,7 +36,7 @@ training:
     validation_freq: 500
     logging_freq: 100
     eval_metric: "bleu"
-    model_dir: "?"
+    model_dir: "models/word_level_joeynmt"
     overwrite: False
     shuffle: True
     use_cuda: False
