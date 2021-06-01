@@ -3,21 +3,19 @@ name: "transformer_word_level_config"
 data:
     src: en
     trg: de
-    train: subsampled.en-de.en
-    dev:   dev.tokenized.en-de.en
-    test:  test.tokenized.en-de.en
-    level: "?"
+    train: subsampled.en-de
+    dev:   dev.tokenized.en-de
+    test:  test.tokenized.en-de
+    level: "word"
     lowercase: False
     max_sent_length: 100
     # either use a vocabulary limit:
     src_voc_limit: 2000
     trg_voc_limit: 2000
-    # or (= not both!) a file with a vocabulary built before starting the training:
-    src_vocab: "?"
-    trg_vocab: "?"
+    
 
 testing:
-    beam_size: ?
+    beam_size: 5
     alpha: 1.0
 
 training:
