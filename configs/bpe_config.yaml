@@ -3,18 +3,18 @@ name: "transformer_bpe_config"
 data:
     src: "en"
     trg: "de"
-    train: "?"
-    dev:   "?"
-    test:  "?"
+    train: "data/st.bpe.en-de"
+    dev:   "data/dev.bpe.en-de"
+    test:  "data/test.bpe.en-de"
     level: "bpe"
     lowercase: False
     max_sent_length: 100
-    # or (= not both!) a file with a vocabulary built before starting the training:
-    src_vocab: "?"
-    trg_vocab: "?"
+    # A file with a vocabulary built before starting the training:
+    src_vocab: "vocabulary/vocabulary_en_de_for_training"
+    trg_vocab: "vocabulary/vocabulary_en_de_for_training"
 
 testing:
-    beam_size: ?
+    beam_size: 5
     alpha: 1.0
 
 training:
@@ -35,7 +35,7 @@ training:
     validation_freq: 500
     logging_freq: 100
     eval_metric: "bleu"
-    model_dir: "?"
+    model_dir: "models/bpe_config"
     overwrite: False
     shuffle: True
     use_cuda: False
