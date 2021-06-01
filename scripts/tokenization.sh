@@ -5,8 +5,8 @@ base=$scripts/..
 
 data=$base/data
 
-src=de
-trg=en
+src=en
+trg=de
 #mkdir -p $data
 
 # Tokenize german training data
