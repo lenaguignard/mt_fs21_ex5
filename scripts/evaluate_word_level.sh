@@ -10,8 +10,8 @@ translations=$base/translations
 
 mkdir -p $translations
 
-src=de
-trg=en
+src=en
+trg=de
 
 # cloned from https://github.com/bricksdont/moses-scripts
 MOSES=$base/tools/moses-scripts/scripts
@@ -32,19 +32,19 @@ translations_sub=$translations/$model_name
 
 mkdir -p $translations_sub
 
-CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt translate $configs/$model_name.yaml < $data/test.bpe.$src > $translations_sub/test.bpe.$model_name.$trg
+CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt translate $configs/$model_name.yaml < $data/test.tokenized.en-de.$src > $translations_sub/test.wordlevel.$model_name.$trg
 
-# undo BPE
+# undo BPE, not used here as word level
 
-cat $translations_sub/test.bpe.$model_name.$trg | sed 's/\@\@ //g' > $translations_sub/test.truecased.$model_name.$trg
+#cat $translations_sub/test.bpe.$model_name.$trg | sed 's/\@\@ //g' > $translations_sub/test.truecased.$model_name.$trg
 
 # undo tokenization
 
-cat $translations_sub/test.tokenized.$model_name.$trg | $MOSES/tokenizer/detokenizer.perl -l $trg > $translations_sub/test.$model_name.$trg
+cat $translations_sub/test.wordlevel.$model_name.$trg | $MOSES/tokenizer/detokenizer.perl -l $trg > $translations_sub/test.$model_name.$trg
 
 # compute case-sensitive BLEU on detokenized data
 
-cat $translations_sub/test.$model_name.$trg | sacrebleu $data/test.$trg
+cat $translations_sub/test.$model_name.$trg | sacrebleu $data/test.en-de.$trg
 
 
 echo "time taken:"
