@@ -32,7 +32,7 @@ translations_sub=$translations/$model_name
 
 mkdir -p $translations_sub
 
-CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt translate $configs/$model_name.yaml < $mt_fs21_ex5/test.tokenized.en-de.$src > $translations_sub/test.wordlevel.$model_name.$trg
+CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt translate $configs/$model_name.yaml < $data/test.tokenized.en-de.$src > $translations_sub/test.wordlevel.$model_name.$trg
 
 # undo BPE, not used here as word level
 
